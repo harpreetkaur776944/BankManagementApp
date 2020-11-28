@@ -1,0 +1,76 @@
+﻿@model BankManagementApp.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="divCenter">
+        <form asp-action="Create">
+            <div class="form-group">
+                <table class="tableDesign" align="center">
+                    <tr>
+                        <td colspan="3"><h3 class="h3Design">Create New Customer</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="tdDesign"><label asp-for="CustomerName" class="control-label"></label></td>
+                        <td class="tdDesign"><input asp-for="CustomerName" type="text" class="form-control" placeholder="Enter Customer Name" /></td>
+                        <td class="tdDesignValidate"><span asp-validation-for="CustomerName" class="text-danger"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="tdDesign"><label asp-for="Dob" class="control-label">Date Of Birth</label></td>
+                        <td class="tdDesign"><input asp-for="Dob" type="date" class="form-control"/></td>
+                        <td class="tdDesignValidate"><span asp-validation-for="Dob" class="text-danger"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="tdDesign"><label asp-for="Address" class="control-label"></label></td>
+                        <td class="tdDesign"><input asp-for="Address" type="text" class="form-control" placeholder="Enter Address" /></td>
+                        <td class="tdDesignValidate"><span asp-validation-for="Address" class="text-danger"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="tdDesign"><label asp-for="State" class="control-label"></label></td>
+                        <td class="tdDesign">
+                            <select class="form-control" id="State" name="State">
+                                <option selected disabled>Select State</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            </select>
+                        </td>
+                        <td class="tdDesignValidate"><span asp-validation-for="State" class="text-danger"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="tdDesign"><label asp-for="City" class="control-label"></label></td>
+                        <td class="tdDesign">
+                            <select class="form-control" id="City" name="City">
+                                <option selected disabled>Select City</option>
+                                <option value="Patiala">Patiala</option>
+                                <option value="Ludhiana">Ludhiana</option>
+                                <option value="Rajpura">Rajpura</option>
+                                <option value="Mohali">Mohali</option>
+                            </select>
+                        </td>
+                        <td class="tdDesignValidate"><span asp-validation-for="City" class="text-danger"></span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="tdButtonDesign" colspan="2">
+                            <span class="form-group">
+                                <input type="submit" value="Create" class="buttonDesign" />
+                            </span>
+                        </td>                
+                    </tr>
+                </table>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>               
+                </div>
+        </form>
+  
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
